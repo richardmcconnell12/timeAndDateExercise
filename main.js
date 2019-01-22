@@ -7,12 +7,19 @@
 
 // *notes: this is a simple web application, so you will need to run the http server
 
-const currentDate = newDate();
-let dateTime = "Last Sync: " + currentDate.getDate() + "/"
-                + (currentDate.getMonth()+1) + "/"
-                + currentDate.getFullDate() +  " @ "
-                + currentDate.getHours() + ":"
-                + currentDate.getMinutes() + ":"
-                + currentDate.getSeconds();
+const currentDate = new Date();
+let dateArticle = document.querySelector(".output");
+dateArticle.textContent = currentDate
 
-console.log(currentDate)
+const updateTimeButton = document.createElement("button");
+updateTimeButton.textContent = "Update Time"
+
+dateArticle.appendChild(updateTimeButton);
+
+updateTimeButton.addEventListener("click", () => {
+    let newTime = new Date()
+    dateArticle.innerHTML = newTime
+    dateArticle.appendChild(updateTimeButton);
+});
+
+
